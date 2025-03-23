@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate by AI API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="translate-area">
+            <div class="text-area">
+                <div class="language-selector">
+                    <label for="sourceLanguage">Chọn ngôn ngữ nguồn:</label>
+                    <select id="sourceLanguage">
+                        <option value="auto" data-fullname="Auto detect" selected>Tự động phát hiện</option>
+                        <option value="vi" data-fullname="Vietnamese">Tiếng Việt</option>
+                        <option value="en" data-fullname="English">Tiếng Anh</option>
+                        <option value="ja" data-fullname="Japanese">Tiếng Nhật</option>
+                        <option value="ko" data-fullname="Korean">Tiếng Hàn</option>
+                        <option value="zh" data-fullname="Chinese (Simplified)">Tiếng Trung (Giản thể)</option>
+                    </select>
+                    <span class="arrow"></span>
+                </div>
+                <textarea id="inputText" placeholder="Nhập văn bản" rows="5"></textarea>
+                <div id="detectedLanguage" class="detected-language"></div>
+                <div class="controls">
+                    <button class="control-button clear-button" aria-label="Xóa văn bản" title="Xóa văn bản"><i class="fa-solid fa-xmark"></i></button>
+                    <button class="control-button copy-button" aria-label="Sao chép" title="Sao chép"><i class="fa-regular fa-copy"></i></button>
+                    <button class="control-button paste-button" aria-label="Dán" title="Dán"><i class="fa-solid fa-paste"></i></button>
+                </div>
+            </div>
+
+            <button class="swap-button" id="swapLanguages" aria-label="Đổi ngôn ngữ" title="Đổi ngôn ngữ"><i class="fas fa-exchange-alt"></i></button>
+
+            <div class="text-area">
+                <div class="language-selector">
+                    <label for="targetLanguage">Chọn ngôn ngữ đích:</label>
+                    <select id="targetLanguage">
+                        <option value="en" data-fullname="English">Tiếng Anh</option>
+                        <option value="vi" data-fullname="Vietnamese" selected>Tiếng Việt</option>
+                        <option value="ja" data-fullname="Japanese">Tiếng Nhật</option>
+                        <option value="ko" data-fullname="Korean">Tiếng Hàn</option>
+                        <option value="zh" data-fullname="Chinese (Simplified)">Tiếng Trung (Giản thể)</option>
+                    </select>
+                    <span class="arrow"></span>
+                </div>
+                <textarea id="result" placeholder="Bản dịch" readonly rows="5"></textarea>
+                <div class="controls">
+                    <button class="control-button copy-button" aria-label="Sao chép" title="Sao chép"><i class="fa-regular fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="additional-instructions-area">
+           <label for="additionalInstructions">Yêu cầu bổ sung (nếu có):</label>
+           <textarea id="additionalInstructions" placeholder="Ví dụ: Dịch theo phong cách trang trọng,..." rows="3"></textarea>
+        </div>
+       <button class="translate-button">Dịch</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

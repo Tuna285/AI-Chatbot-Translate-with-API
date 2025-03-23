@@ -1,0 +1,238 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #121212;
+    background-image: url('https://i.imgur.com/kWVe3Ea.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #e0e0e0;
+}
+
+.container {
+    background-color: rgba(30, 30, 30, 0.8); /* Thêm độ trong suốt */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.translate-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.text-area {
+    flex: 1;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.language-selector {
+    margin-bottom: 10px;
+    position: relative; /* Để định vị .arrow */
+}
+
+.language-selector label {
+    display: block; /* label chiếm toàn bộ chiều rộng */
+    margin-bottom: 5px;
+}
+
+.language-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #333;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    appearance: none; /* Loại bỏ mũi tên mặc định của trình duyệt */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.language-selector select:hover,
+.language-selector select:focus {
+    border-color: #bb86fc;
+    outline: none;
+}
+
+/* Mũi tên tùy chỉnh */
+.language-selector .arrow {
+    position: absolute;
+    top: 70%; /* canh giữa */
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Không chặn click vào select */
+    color: #bb86fc;
+}
+
+.language-selector .arrow::after {
+    content: "\f078"; /* Unicode của icon Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+textarea {
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    resize: vertical; /* Cho phép thay đổi chiều cao */
+    width: 93.5%; /* Sửa lại width để căn chỉnh cho đẹp */
+}
+
+.text-area textarea {
+    width: calc(100% - 24px); /* bằng padding 2 bên */
+}
+
+textarea:focus {
+    border-color: #bb86fc;
+    outline: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Class chung cho các nút điều khiển */
+.control-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #e0e0e0;
+    transition: color 0.3s ease;
+    padding: 5px; /* Thêm padding để dễ click hơn */
+}
+
+.controls button:hover,
+.controls button:focus {
+    color: #bb86fc;
+    outline: none; /* Loại bỏ outline mặc định */
+}
+
+.controls button i {
+    pointer-events: none; /* quan trọng, không bị sự kiện click */
+}
+
+.swap-button {
+    background-color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    color: #e0e0e0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center;
+    align-self: flex-start;
+    margin-top: 35px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease;
+
+}
+
+.swap-button:hover,
+.swap-button:focus {
+    background-color: #444;
+    outline: 2px solid #bb86fc;
+    outline-offset: 2px;
+}
+
+.swap-button.active {
+    transform: rotate(180deg);
+}
+
+.translate-button {
+    background: linear-gradient(135deg, #bb86fc, #9a67ea);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px; /* Thêm khoảng cách với khu vực dịch */
+    transition: background 0.3s ease;
+}
+
+.translate-button:hover,
+.translate-button:focus {
+    background: linear-gradient(135deg, #9a67ea, #bb86fc);
+    outline: 2px solid #bb86fc;
+    outline-offset: 2px;
+}
+
+.translate-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, #666666, #444444);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .translate-area {
+        flex-direction: column;
+    }
+
+    .swap-button {
+        margin: 10px auto;
+    }
+
+    textarea,
+    .language-selector select,
+    .translate-button {
+        font-size: 14px;
+    }
+}
+
+.additional-instructions-area {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.additional-instructions-area label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.additional-instructions-area textarea {
+    width: calc(100% - 24px); /* Trừ padding */
+}
+
+.copy-button.copied i {
+    color: #4CAF50; /* màu xanh lá khi copy */
+}
