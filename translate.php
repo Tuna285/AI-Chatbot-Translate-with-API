@@ -7,7 +7,7 @@ require_once 'config.php';
 // Nhận dữ liệu từ yêu cầu POST
 $data = json_decode(file_get_contents("php://input"), true);
 $text = $data['text'] ?? '';
-$sourceLang = $data['sourceLang'] ?? 'auto';  // Thêm sourceLang với giá trị mặc định là 'auto'
+$sourceLang = $data['sourceLang'] ?? 'auto';
 $targetLang = $data['targetLang'] ?? '';
 $additionalInstructions = $data['additionalInstructions'] ?? ''; // Lấy yêu cầu bổ sung
 
@@ -17,8 +17,8 @@ if (empty($text) || empty($targetLang)) {
 }
 
 // Thông tin Google Gemini API
-$apiKey = GEMINI_API_KEY; // Use constant from config
-$apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+$apiKey = API_KEY;
+$apiUrl = "API_URL";
 
 // Tạo prompt dịch thuật
 $prompt = "";
