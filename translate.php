@@ -17,7 +17,7 @@ if (empty($text) || empty($targetLang)) {
 }
 
 // Thông tin Google Gemini API
-$apiKey = API_KEY;
+$apiKey = GEMINI_API_KEY;
 $apiUrl = "API_URL";
 
 // Tạo prompt dịch thuật
